@@ -1,4 +1,6 @@
 class PinnsController < ApplicationController
+  before_filter :authenticate_user!, except: [:index]
+
   # GET /pinns
   # GET /pinns.json
   def index
@@ -24,7 +26,7 @@ class PinnsController < ApplicationController
   # GET /pinns/new
   # GET /pinns/new.json
   def new
-    @pinn = Pinn.new
+    @pinn = current_user.pinns.new(params[:pinn])
 
     respond_to do |format|
       format.html # new.html.erb
