@@ -1,4 +1,10 @@
 Omrails::Application.routes.draw do
+  resources :pinns
+
+
+  resources :pins
+
+
   devise_for :views
 
   devise_for :users

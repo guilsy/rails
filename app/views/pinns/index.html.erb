@@ -1,0 +1,20 @@
+<h1>Listing pinns</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <%= render @pinns %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Pinn', new_pinn_path %>
