@@ -4,7 +4,11 @@
 			<p>
 			   <%= @pinn.description %>
 			</p>
-			<%= link_to 'Edit', edit_pinn_path(@pinn) %> |
+			<p>
+			   <%= @pinn.user.name %>
+			</p>
+			<% if current_user == @pinn.user %>
+			<%= link_to 'Edit', edit_pinn_path(@pinn) %> | <% end %>
 			<%= link_to 'Back', pinns_path %>
 		</div>	
 	</div>

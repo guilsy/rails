@@ -26,7 +26,7 @@ class PinnsController < ApplicationController
   # GET /pinns/new
   # GET /pinns/new.json
   def new
-    @pinn = current_user.pinns.new(params[:pinn])
+    @pinn = current_user.pinns.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +36,13 @@ class PinnsController < ApplicationController
 
   # GET /pinns/1/edit
   def edit
-    @pinn = Pinn.find(params[:id])
+    @pinn = current_user.find(params[:id])
   end
 
   # POST /pinns
   # POST /pinns.json
   def create
-    @pinn = Pinn.new(params[:pinn])
+    @pinn = current_user.pinns.new(params[:pinn])
 
     respond_to do |format|
       if @pinn.save
@@ -58,7 +58,7 @@ class PinnsController < ApplicationController
   # PUT /pinns/1
   # PUT /pinns/1.json
   def update
-    @pinn = Pinn.find(params[:id])
+    @pinn = current_user.find(params[:id])
 
     respond_to do |format|
       if @pinn.update_attributes(params[:pinn])
@@ -74,7 +74,7 @@ class PinnsController < ApplicationController
   # DELETE /pinns/1
   # DELETE /pinns/1.json
   def destroy
-    @pinn = Pinn.find(params[:id])
+    @pinn = current_user.find(params[:id])
     @pinn.destroy
 
     respond_to do |format|
